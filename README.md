@@ -2,6 +2,23 @@
 
 MCP server dla Google Search Console — multi-property, OAuth2 user-flow (Service Account jako fallback), FastMCP/stdio.
 
+## Why another GSC MCP?
+
+Popularna alternatywa: **[AminForou/mcp-gsc](https://github.com/AminForou/mcp-gsc)** (842⭐, na PyPI jako `mcp-search-console`). Świetny, comprehensive — 15+ tools obejmujących batch inspection, indexing issues, performance overview, advanced analytics z pre-formatted string responses.
+
+To repo (`gsc-mcp`) jest **niezależną minimalną implementacją** zorientowaną inaczej:
+
+- 5 essential tools (`gsc_list_sites`, `gsc_search_analytics`, `gsc_inspect_url`, `gsc_list_sitemaps`, `gsc_compare_periods`)
+- Returns **structured dicts** (raw API data) zamiast pre-formatted stringów — agent (Claude Code, Codex CLI) sam formatuje dla swojego kontekstu
+- Modern Python: package structure `src/gsc_mcp/{server,auth}.py`, type hints, sync `def`
+- Explicit OAuth2 + Service Account split w osobnym `auth.py`
+- **OAuth2 user-flow domyślnie** (Domain properties działają, w przeciwieństwie do Service Account który Google blokuje od kilku miesięcy)
+
+Wybierz AminForou jeśli chcesz comprehensive batch tools. Wybierz to jeśli chcesz minimal + structured data + modern packaging.
+
+
+MCP server dla Google Search Console — multi-property, OAuth2 user-flow (Service Account jako fallback), FastMCP/stdio.
+
 ## Tools
 
 - `gsc_list_sites` — wszystkie properties dostępne dla zalogowanego konta
